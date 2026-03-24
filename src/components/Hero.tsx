@@ -1,19 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Zap } from "lucide-react";
 import ColorBends from "./ColorBends";
 
 const words = ["Intelligence.", "Surveillance.", "Security."];
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: {},
     visible: {
         transition: { staggerChildren: 0.2, delayChildren: 0.3 },
     },
 };
 
-const wordVariants = {
+const wordVariants: Variants = {
     hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
     visible: {
         opacity: 1,
