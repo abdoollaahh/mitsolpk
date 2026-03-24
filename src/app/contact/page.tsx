@@ -9,22 +9,22 @@ const contactInfo = [
     {
         icon: Phone,
         label: "Phone",
-        value: "+92 300 1234567",
-        href: "tel:+923001234567",
+        value: "+92 330 5500855",
+        href: "tel:+923305500855",
         color: "emerald",
     },
     {
         icon: Mail,
         label: "Email",
-        value: "info@mitsolpk.com",
-        href: "mailto:info@mitsolpk.com",
+        value: "mitsolpk@gmail.com",
+        href: "mailto:mitsolpk@gmail.com",
         color: "cyan",
     },
     {
         icon: MapPin,
         label: "Headquarters",
-        value: "Technologies Park, Lahore, Pakistan",
-        href: "https://maps.google.com/?q=Technologies+Park,Lahore",
+        value: "Multi Residencia and Orchards, Main Jhang Bhater Road, ROS, Pakistan",
+        href: "https://maps.google.com/?q=Multi+Residencia+and+Orchards,+Main+Jhang+Bhater+Road,+ROS,+Pakistan",
         color: "emerald",
     },
     {
@@ -104,16 +104,17 @@ export default function ContactPage() {
                             ))}
                         </div>
 
-                        {/* Map Placeholder */}
-                        <div className="relative h-64 w-full rounded-2xl overflow-hidden border border-white/10 bg-white/5 group">
-                            {/* This would be a real Google Maps embed */}
-                            <div className="absolute inset-0 bg-[url('https://placehold.co/800x400/1a1a1a/2a2a2a?text=Interactive+Location+Map')] bg-cover bg-center opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div className="bg-black/60 backdrop-blur-md px-6 py-3 rounded-full border border-neon-emerald/30 flex items-center gap-2">
-                                    <MapPin className="h-4 w-4 text-neon-emerald" />
-                                    <span className="text-sm font-medium text-white">View on Maps</span>
-                                </div>
-                            </div>
+                        {/* Map Embed */}
+                        <div className="relative h-64 w-full rounded-2xl overflow-hidden border border-white/10 bg-white/5 opacity-80 hover:opacity-100 transition-opacity duration-500">
+                            <iframe 
+                                src="https://maps.google.com/maps?q=33.7165422,72.7121262&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                width="100%" 
+                                height="100%" 
+                                style={{ border: 0 }} 
+                                allowFullScreen 
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade"
+                            />
                         </div>
                     </motion.div>
 

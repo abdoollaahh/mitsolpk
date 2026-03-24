@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Camera, Cloud, Wrench, FileSearch, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const services = [
     {
@@ -11,6 +12,7 @@ const services = [
             "Enterprise-grade surveillance with AI-powered motion detection, facial recognition, and smart analytics. Full HD to 4K systems tailored to your security needs.",
         large: true,
         accent: "emerald" as const,
+        image: "/images/services/cctv.png"
     },
     {
         icon: Cloud,
@@ -19,6 +21,7 @@ const services = [
             "Access your cameras from anywhere. Cloud storage, mobile alerts, and real-time monitoring dashboards for total visibility.",
         large: false,
         accent: "cyan" as const,
+        image: "/images/services/cloud.png"
     },
     {
         icon: Wrench,
@@ -27,6 +30,7 @@ const services = [
             "Preventive maintenance plans and seamless upgrades to keep your system running at peak performance.",
         large: false,
         accent: "emerald" as const,
+        image: "/images/services/maintenance.png"
     },
     {
         icon: FileSearch,
@@ -35,6 +39,7 @@ const services = [
             "Expert blueprints and vulnerability assessments. We design security architectures that protect every blind spot.",
         large: false,
         accent: "cyan" as const,
+        image: "/images/services/design.png"
     },
 ];
 
@@ -89,17 +94,31 @@ export function BentoGrid() {
                             >
                                 {/* Hover glow */}
                                 <div
-                                    className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl ${isEmerald ? "glow-emerald" : "glow-cyan"
+                                    className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl z-10 ${isEmerald ? "glow-emerald" : "glow-cyan"
                                         }`}
                                 />
 
                                 {/* Corner accent */}
                                 <div
-                                    className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-5 group-hover:opacity-10 transition-opacity duration-500 ${isEmerald ? "bg-neon-emerald" : "bg-neon-cyan"
+                                    className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity duration-500 z-10 ${isEmerald ? "bg-neon-emerald" : "bg-neon-cyan"
                                         }`}
                                 />
 
-                                <div className="relative z-10">
+                                {/* Background Image */}
+                                <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover opacity-40 mix-blend-overlay group-hover:opacity-60 transition-all duration-700 group-hover:scale-105"
+                                    />
+                                    {/* Gradient overlay for readability */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30 mix-blend-multiply" />
+                                    <div className="absolute inset-0 bg-black/40" />
+                                </div>
+
+                                <div className="relative z-20">
                                     {/* Icon */}
                                     <div
                                         className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-6 ${isEmerald
